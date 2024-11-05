@@ -18,12 +18,22 @@ namespace TexAnim.Components
     public class TexAnimAnimator : MonoBehaviour
     {
 
+        TexAnimAnimator()
+        {
+            _playOnStart = true;
+            _currentAnimation = AnimationsTypes.Idle;
+            _baseAnimation = _currentAnimation;
+
+            _maxTransitionTime = 0.3f;
+        }
+
         [Header("Base Fields")]
         [SerializeField] private bool _playOnStart;
         [SerializeField] private ScriptableObject_AnimationsBank _animationsBank;
-        [SerializeField] private MeshRenderer _meshRenderer;
         [SerializeField] private AnimationsTypes _currentAnimation;
-        [SerializeField] private AnimationsTypes _baseAnimation;
+        private AnimationsTypes _baseAnimation;
+
+        private MeshRenderer _meshRenderer;
         private Material _animatedMaterialInstance;
 
 
@@ -57,6 +67,11 @@ namespace TexAnim.Components
 
         private void Awake()
         {
+            if (!_meshRenderer)
+            {
+                _meshRenderer = GetComponentInChildren<MeshRenderer>();
+            }
+
             _animatedMaterialInstance = _meshRenderer.material;
         }
 
@@ -72,8 +87,9 @@ namespace TexAnim.Components
         {
             _canAnimate = true;
             _loopAnimation = true;
-            _baseAnimation = AnimationsTypes.Idle;
             _currentAnimation = AnimationsTypes.Idle;
+            _baseAnimation = _currentAnimation;
+            _maxTransitionTime = 0.3f;
 
             ApplyAnimation();
         }
@@ -120,11 +136,6 @@ namespace TexAnim.Components
             }
             else
             {
-                /*Debug.Log("End of Triggered Animation");
-                _currentAnimationTime = _nextAnimationTime;
-                _currentAnimation = _baseAnimation;
-                ApplyAnimation();
-                _isTrigger = false;*/
 
                 Debug.Log("End of Triggered Animation");
                 _currentAnimationTime = _nextAnimationTime;
