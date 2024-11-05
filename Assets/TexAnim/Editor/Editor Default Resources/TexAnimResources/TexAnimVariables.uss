@@ -1,0 +1,20 @@
+:root
+{
+	--tex-colors-grid-light-grey-1: #2b2b2b;
+	--tex-colors-grid-light-grey-2: rgba(60, 60, 60, 0.4);
+	--tex-colors-grid-light-grey-3: rgba(70, 70, 70, 1);
+
+	--tex-colors-window-dark-grey-1: #1D1D1E;
+	--tex-colors-window-dark-grey-2: #2B2D2F;
+	--tex-colors-window-dark-grey-3: #212325;
+	--tex-colors-window-dark-grey-4: #232527;
+	--tex-colors-window-dark-grey-5: #252729;
+	--tex-colors-window-dark-grey-6: #27292C;
+
+	--tex-colors-window-yellow: #FDD057;
+
+	--tex-colors-window-light-green-1: #37B04B;
+	--tex-colors-window-light-green-2: #27292C;
+
+	--tex-metrics-grid-25: 25;
+}

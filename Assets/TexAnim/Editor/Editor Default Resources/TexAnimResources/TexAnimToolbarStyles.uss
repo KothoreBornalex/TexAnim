@@ -1,0 +1,61 @@
+/* VISUAL ELEMENTS */
+VisualElement{
+	background-color: var(--tex-colors-window-dark-grey-1);
+	height: 26px;
+}
+
+TextField{
+	padding: 4px;
+}
+
+Button
+{
+	background-color: var(--tex-colors-window-dark-grey-5);
+	border-color: var(--tex-colors-window-dark-grey-1);
+	margin: 4px;
+	max-height: 25px;
+}
+Button:hover
+{
+	background-color: var(--tex-colors-window-dark-grey-2);
+}
+Button:focus
+{
+	background-color: var(--tex-colors-window-dark-grey-3);
+	color: var(--tex-colors-window-yellow);
+}
+
+
+Label{
+	padding-top: 3.5px;
+	font-size: 14px;
+	padding-left: 20;
+}
+
+PopupField{
+	height: 20px;
+}
+/* BUILT IN */
+.unity-text-field__label
+{
+	padding: 4px;
+}
+
+TextField:focus > .unity-text-field__label{
+	color: var(--tex-colors-window-yellow);
+}
+
+.unity-text-field__input
+{
+		background-color: var(--tex-colors-window-dark-grey-1);
+		border-color: var(--tex-colors-window-dark-grey-6);
+		border-radius: 4px;
+		max-height: 25px;
+		min-width: 120px;
+		padding-left: 6px;
+}
+
+.unity-text-field__input:focus
+{
+		color: var(--tex-colors-window-yellow);
+}

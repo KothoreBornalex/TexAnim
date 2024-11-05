@@ -1,0 +1,7 @@
+GridBackground
+{
+	--grid-background-color: var(--tex-colors-grid-light-grey-1);
+	--line-color: var(--tex-colors-grid-light-grey-2);
+	--thick-line-color: var(--tex-colors-grid-light-grey-3);
+	--spacing: var(--tex-metrics-grid-25);
+}

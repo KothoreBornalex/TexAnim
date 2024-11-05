@@ -1,0 +1,29 @@
+/* Custom styles for the tex-slider */
+.tex-slider {
+    /* Define the size of the tex-slider */
+    width: 200px;
+    height: 20px;
+}
+
+/* Style for the track (background) of the tex-slider */
+.tex-slider_fill {
+    background-color: #999; /* Gray color */
+}
+
+/* Style for the thumb (handle) of the tex-slider */
+.tex-slider_thumb {
+    background-color: #333; /* Dark gray color */
+    width: 200px; /* Width of the thumb */
+    height: 20px; /* Height of the thumb */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Style for the fill (progress) of the tex-slider */
+.tex-slider::track {
+    background-color: #ccc; /* Light gray color */
+}
+
+/* Custom style for adjusting the height of the fill */
+.tex-slider::fill .unity-fill {
+    height: 10px; /* Custom height */
+}
