@@ -8,8 +8,14 @@ public class DemoManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject _prefab;
-    [SerializeField] private int _rows;
-    [SerializeField] private int _columns;
+
+    private int _totalCount;
+
+    [SerializeField, Range(0, 250)] private int _rows;
+    [SerializeField, Range(0, 250)] private int _columns;
+
+    [SerializeField, Range(0, 10)] private int _rowsSpace;
+    [SerializeField, Range(0, 10)] private int _columnsSpace;
 
 
     // Start is called before the first frame update
@@ -29,12 +35,14 @@ public class DemoManager : MonoBehaviour
 
     void InitializeDemo(int Rows, int Columns)
     {
+        _totalCount = Rows * Columns;
+
         Vector3 position = transform.position;
         for (int i = 0; i < Rows; i++)
         {
             for (int y = 0; y < Columns; y++)
             {
-                Instantiate(_prefab, new Vector3(position.x + Rows, position.y, position.z + y), Quaternion.identity);
+                Instantiate(_prefab, new Vector3(position.x + -i * _rowsSpace, position.y, position.z + -y * _columnsSpace), Quaternion.identity);
             }
         }
     }
