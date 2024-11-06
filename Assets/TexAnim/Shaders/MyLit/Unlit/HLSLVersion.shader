@@ -22,10 +22,11 @@ Shader "Unlit/HLSLVersion"
 	
     SubShader
     {
-        Tags { "RenderType" = "Opaque" }
-        Cull off
-		LOD 100
 
+        // ANIMATED SHADER
+        Tags { "RenderType" = "Opaque" }
+        Cull Back
+		LOD 100
         Pass
         {
             HLSLPROGRAM
@@ -76,33 +77,12 @@ Shader "Unlit/HLSLVersion"
                UNITY_SETUP_INSTANCE_ID(v);
                
                // Current Anim Map
-               //float currentF = _Time.y / _CurrentAnimLen;
-               //float currentF = _CurrentAnimationTime;
-
                float currentAnimMap_x = (vid + 0.5) * _CurrentAnimMap_TexelSize.x;
                float currentAnimMap_y = _CurrentAnimationTime;
                
                // Next Anim Map
-               //float nextF = _Time.y / _NextAnimLen;
-               //float nextF = _NextAnimationTime;
                float nextAnimMap_x = (vid + 0.5) * _NextAnimMap_TexelSize.x;
                float nextAnimMap_y = _NextAnimationTime;
-
-               //float4 pos = tex2Dlod(_AnimMap, float4(animMap_x, animMap_y, 0, 0));
-
-
-               //float4 targetPos = tex2Dlod(_AnimMap, float4(animMap_x, animMap_y, 0, 0));
-               //float4 currentPos = v.pos * 0.015;
-               //float4 direction =  normalize(targetPos - currentPos);
-               //float distance = length(targetPos - currentPos);
-               //
-               //float4 pos = currentPos + direction * (distance / _AnimLen);
-
-
-               //float4 currentPos = v.pos * 0.015;
-               //float4 targetPos = tex2Dlod(_AnimMap, float4(animMap_x, animMap_y, 0, 0));
-               //float4 pos = lerp(currentPos, targetPos, _Blend);
-              
 
 
                float4 currentPos = tex2Dlod(_CurrentAnimMap, float4(currentAnimMap_x, currentAnimMap_y, 0, 0));
@@ -116,8 +96,6 @@ Shader "Unlit/HLSLVersion"
                
 
                return o;
-
-
             }
             
             fixed4 frag (v2f i) : SV_Target
